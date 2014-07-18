@@ -1,7 +1,7 @@
 FastPencil
 =========
 
-Hi! Thanks for taking the time to look at my solution.  This is the FastPencil excercise I was given, and here are the original requirements with some formatting:
+Hi! Thanks for taking the time to look at my solution.  This is the FastPencil exercise I was given, and here are the original requirements with some formatting:
 
 >Requirements
 > - Given a list of words, generate two output
@@ -72,11 +72,11 @@ Input Files
 
 Run It...
 --------------
-You can run the solution a couple of different ways. In the original requirements, I wasn't sure how sorting should happen for upper vs. lower, so I added both.  The input file is required, but the defaults for the other options are:
+You can run the solution a couple of different ways. Feel free to change as needed. In the original requirements, I wasn't sure how sorting should happen for upper vs. lower, so I added both.  The input file is required, but the defaults for the other options are:
 - ignore case for sorting: __true__
 - question output file: __questions.out__
 - answer output file: __answers.out__
-Feel free to change as needed.
+
 
 ```sh
 rake run [test_words.txt,false]
