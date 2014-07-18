@@ -63,6 +63,13 @@ rake
 rake test
 ```
 
+Input Files
+--------------
+3 input files are available.
+- __test_words.txt__ (the original words in the requirements)
+- __test_words_case.txt__ (the original words in the requirements with 1 uppercase)
+- __words.txt__ (the input file provided with the requirements)
+
 Run It...
 --------------
 You can run the solution a couple of different ways. In the original requirements, I wasn't sure how sorting should happen for upper vs. lower, so I added both.  The input file is required, but the defaults for the other options are:
@@ -70,18 +77,12 @@ You can run the solution a couple of different ways. In the original requirement
 - question output file: __questions.out__
 - answer output file: __answers.out__
 Feel free to change as needed.
-Input Files
----
-3 input files are available.
-- __test_words.txt__ (the original words in the requirements)
-- __test_words_case.txt__ (the original words in the requirements with 1 uppercase)
-- __words.txt__ (the input file provided with the requirements)
 
 ```sh
 rake run [test_words.txt,false]
 rake run [test_words_case.txt]
 rake run [words.txt]
-rake run [words.txt,true,false]
+rake run [words.txt,false]
 ```
 The output of the solution will be the __questions.out__ file and the __answers.out__ file.  Also, the command line will display benchmark information. 
 
