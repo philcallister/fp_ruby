@@ -53,7 +53,7 @@ bundle install
 ```
 Documentation
 --------------
-Documentation can be found under the __./docs__ directory. The documentation includes the interface to the classes along with various thoughts as to why I did things the way I did.
+Documentation can be found under the __./doc__ directory. The documentation includes the interface to the classes along with various thoughts as to why I did things the way I did.
 
 Tests
 --------------
