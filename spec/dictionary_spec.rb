@@ -15,24 +15,31 @@ describe "Dictionary" do
 
     it "adds a word and generates 4-grams" do
       @dict.add_word("arrows")
-      compare_hash = { "arro"=>1, "rrow"=>1, "rows"=>1 }
+      compare_hash = {"arro"=>["arrows"], "rrow"=>["arrows"], "rows"=>["arrows"]}
       @dict.must_equal compare_hash
     end
 
     it "adds duplicate words and generates 4-grams with a duplicate count" do
       @dict.add_word("baseball").add_word("football").add_word("ballista")
-      @dict["ball"].must_equal 3
+      @dict["ball"].must_equal ["baseball", "football", "ballista"]
     end
 
     it "won't add 4-grams that include an apostrophe" do
       @dict.add_word("homebrewer's")
-      compare_hash = {"home"=>1, "omeb"=>1, "mebr"=>1, "ebre"=>1, "brew"=>1, "rewe"=>1, "ewer"=>1}
+      compare_hash = {"home"=>["homebrewer's"], "omeb"=>["homebrewer's"], "mebr"=>["homebrewer's"],
+                      "ebre"=>["homebrewer's"], "brew"=>["homebrewer's"], "rewe"=>["homebrewer's"], "ewer"=>["homebrewer's"]}
       @dict.must_equal compare_hash
     end
 
-    it "won't add 4-grams that include an integer" do
+    it "won't add 4-grams that include an integer(1)" do
       @dict.add_word("golfer123")
-      compare_hash = {"golf"=>1, "olfe"=>1, "lfer"=>1}
+      compare_hash = {"golf"=>["golfer123"], "olfe"=>["golfer123"], "lfer"=>["golfer123"]}
+      @dict.must_equal compare_hash
+    end
+
+    it "won't add 4-grams that include an integer(2)" do
+      @dict.add_word("10th")
+      compare_hash = {}
       @dict.must_equal compare_hash
     end
 
@@ -51,16 +58,34 @@ describe "Dictionary" do
 
   end
 
-  describe "#unique" do
+  describe "#unique_segments" do
 
     it "has method defined" do
-      Dictionary.method_defined?(:unique).must_equal true
+      Dictionary.method_defined?(:unique_segments).must_equal true
     end
 
-    it "adds duplicate words and retrieves unique 4-grams" do
+    it "adds duplicate words and retrieves unique 4-grams WITHOUT words" do
       @dict.add_words("arrows", "carrots", "give", "me")
-      @dict.unique.must_equal ["carr", "give", "rots", "rows", "rrot", "rrow"]
+      @dict.unique_segments.must_equal ["carr", "give", "rots", "rows", "rrot", "rrow"]
     end
+
+    it "adds duplicate words and retrieves unique 4-grams WITH words" do
+      @dict.add_words("arrows", "carrots", "give", "me")
+      @dict.unique_segments(true).must_equal [["carr", ["carrots"]], ["give", ["give"]], ["rots", ["carrots"]],
+                                              ["rows", ["arrows"]], ["rrot", ["carrots"]], ["rrow", ["arrows"]]]
+    end
+
+    it "adds duplicate words and retrieves unique 4-grams WITHOUT words IGNORING case" do
+      @dict.add_words("arrows", "carrots", "Give", "me")
+      @dict.unique_segments(false, true).must_equal ["carr", "Give", "rots", "rows", "rrot", "rrow"]
+    end
+
+    it "adds duplicate words and retrieves unique 4-grams WITH words NOT IGNORING case" do
+      @dict.add_words("arrows", "carrots", "Give", "me")
+      @dict.unique_segments(true).must_equal [["Give", ["Give"]], ["carr", ["carrots"]], ["rots", ["carrots"]],
+                                              ["rows", ["arrows"]], ["rrot", ["carrots"]], ["rrow", ["arrows"]]]
+    end
+
   end
 
 end
