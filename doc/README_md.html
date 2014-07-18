@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>README - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+<div id="table-of-contents">
+  <nav class="section">
+    <h3 class="section-header">Table of Contents</h3>
+    <ul>
+      <li><a href="#label-FastPencil">FastPencil</a>
+      <li><a href="#label-Version">Version</a>
+      <li><a href="#label-Installation">Installation</a>
+      <li><a href="#label-Documentation">Documentation</a>
+      <li><a href="#label-Tests">Tests</a>
+      <li><a href="#label-Input+Files">Input Files</a>
+      <li><a href="#label-Run+It...">Run It…</a>
+      <li><a href="#label-Thanks%21">Thanks!</a>
+    </ul>
+  </nav>
+</div>
+
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="./Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li class="file"><a href="./README_md.html">README</a>
+  
+    <li class="file"><a href="./Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="./doc/created_rid.html">created.rid</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Dictionary.html">Dictionary</a>
+  
+    <li><a href="./Generator.html">Generator</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./String.html">String</a>
+  
+    <li><a href="./WordIO.html">WordIO</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<h1 id="label-FastPencil">FastPencil<span><a href="#label-FastPencil">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<p>Hi! Thanks for taking the time to look at my solution. This is the
+FastPencil exercise I was given, and here are the original requirements
+with some formatting:</p>
+
+<blockquote>
+<p>Requirements
+- Given a list of words, generate two output
+files,
+&#39;questions&#39; and &#39;answers&#39;.
+- &#39;questions&#39; should
+contain every
+sequence of four letters that appear in exactly one word of
+the
+dictionary, one sequence per line.
+- &#39;answers&#39; should contain
+the
+corresponding words that contain the sequences, in the same
+order,
+again one per line.</p>
+
+<p>An example, say this is your dictionary:
+- arrows
+- carrots
+- give
+- me</p>
+
+<p>&#39;questions&#39; would contain:
+- carr
+- give
+- rots
+- rows
+- rrot
+-
+rrow
+- &#39;arro&#39; wouldn&#39;t show up in &#39;questions&#39;, because
+it appears in two words</p>
+
+<p>&#39;answers&#39; would have:
+- carrots
+- give
+- carrots
+- arrows
+-
+carrots
+- arrows</p>
+
+<p>My Questions:
+- What about numbers and apostrophes? I could try to skip
+over them and include &#39;aint&#39; =&gt; &#39;ain&#39;t&#39;
+But right
+now I just skip any fragment that contains an apostrophe. And same goes for
+integers.</p>
+</blockquote>
+
+<h2 id="label-Version">Version<span><a href="#label-Version">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Tested with ==&gt; Ruby 2.0.0p451</p>
+
+<h2 id="label-Installation">Installation<span><a href="#label-Installation">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<pre>git clone https://github.com/philcallister/fp_ruby.git
+gem install bundler
+bundle install</pre>
+
+<h2 id="label-Documentation">Documentation<span><a href="#label-Documentation">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Documentation can be found under the <strong>./doc</strong> directory. The
+documentation includes the interface to the classes along with various
+thoughts as to why I did things the way I did.</p>
+
+<h2 id="label-Tests">Tests<span><a href="#label-Tests">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Test specs are written with MiniTest. The tests run as the default
+task.
+&lt;code&gt;sh
+rake
+rake test
+&lt;/code&gt;</p>
+
+<h2 id="label-Input+Files">Input Files<span><a href="#label-Input+Files">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>3 input files are available.
+- <strong>test_words.txt</strong> (the
+original words in the requirements)
+- <strong>test_words_case.txt</strong>
+(the original words in the requirements with 1 uppercase)
+-
+<strong>words.txt</strong> (the input file provided with the requirements)</p>
+
+<h2 id="label-Run+It...">Run It…<span><a href="#label-Run+It...">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>You can run the solution a couple of different ways. Feel free to change as
+needed. In the original requirements, I wasn&#39;t sure how sorting should
+happen for upper vs. lower, so I added both. The input file is required,
+but the defaults for the other options are:
+- ignore case for sorting:
+<strong>true</strong>
+- question output file:
+<strong>questions.out</strong>
+- answer output file:
+<strong>answers.out</strong></p>
+
+<pre>rake run [test_words.txt,false]
+rake run [test_words_case.txt]
+rake run [words.txt]
+rake run [words.txt,false]</pre>
+
+<p>The output of the solution will be the <strong>questions.out</strong> file
+and the <strong>answers.out</strong> file. Also, the command line will
+display benchmark information.</p>
+
+<h2 id="label-Thanks%21">Thanks!<span><a href="#label-Thanks%21">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Again, thanks for taking a look at my solution. Please feel free to drop me
+a line if you have any questions!</p>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

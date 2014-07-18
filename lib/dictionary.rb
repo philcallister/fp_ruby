@@ -17,7 +17,7 @@
 #
 #   add_word("arrows")
 #   add_words("carrots", "give", "me")
-#   unique
+#   unique_segments
 #   # => Array ["carr", "give", "rots", "rows", "rrot", "rrow"]
 class Dictionary < Hash
 

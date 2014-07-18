@@ -1,12 +1,13 @@
-Fri, 18 Jul 2014 11:52:37 -0500
-./doc/created.rid	Fri, 18 Jul 2014 11:52:37 -0500
-./Gemfile	Thu, 17 Jul 2014 11:52:08 -0500
-./Gemfile.lock	Thu, 17 Jul 2014 12:02:00 -0500
-./lib/dictionary.rb	Fri, 18 Jul 2014 11:02:15 -0500
+Fri, 18 Jul 2014 15:12:51 -0500
+./doc/created.rid	Fri, 18 Jul 2014 15:12:51 -0500
+./Gemfile	Fri, 18 Jul 2014 11:57:39 -0500
+./Gemfile.lock	Fri, 18 Jul 2014 11:59:51 -0500
+./lib/dictionary.rb	Fri, 18 Jul 2014 15:12:11 -0500
 ./lib/generator.rb	Fri, 18 Jul 2014 11:52:09 -0500
 ./lib/string.rb	Fri, 18 Jul 2014 11:02:28 -0500
 ./lib/word_io.rb	Fri, 18 Jul 2014 11:52:34 -0500
-./Rakefile	Fri, 18 Jul 2014 10:33:21 -0500
+./Rakefile	Fri, 18 Jul 2014 12:06:26 -0500
+./README.md	Fri, 18 Jul 2014 15:08:51 -0500
 ./spec/dictionary_spec.rb	Fri, 18 Jul 2014 10:22:47 -0500
 ./spec/generator_spec.rb	Fri, 18 Jul 2014 11:43:57 -0500
 ./spec/string_spec.rb	Thu, 17 Jul 2014 11:07:36 -0500
