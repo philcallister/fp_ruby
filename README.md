@@ -79,10 +79,10 @@ You can run the solution a couple of different ways. Feel free to change as need
 
 
 ```sh
-rake run [test_words.txt,false]
-rake run [test_words_case.txt]
-rake run [words.txt]
-rake run [words.txt,false]
+rake run[test_words.txt,false]
+rake run[test_words_case.txt]
+rake run[words.txt]
+rake run[words.txt,false]
 ```
 The output of the solution will be the __questions.out__ file and the __answers.out__ file.  Also, the command line will display benchmark information. 
 
